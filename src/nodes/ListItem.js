@@ -27,7 +27,7 @@ import { findParentNode, findParentNodeClosestToPos } from 'prosemirror-utils'
 
 const TYPES = {
 	BULLET: 0,
-	CHECKBOX: 1
+	CHECKBOX: 1,
 }
 
 const getParentList = (schema, selection) => {
@@ -40,7 +40,7 @@ export default class ListItem extends TiptapListItem {
 
 	get defaultOptions() {
 		return {
-			nested: true
+			nested: true,
 		}
 	}
 
@@ -48,11 +48,11 @@ export default class ListItem extends TiptapListItem {
 		return {
 			attrs: {
 				done: {
-					default: false
+					default: false,
 				},
 				type: {
-					default: TYPES.BULLET
-				}
+					default: TYPES.BULLET,
+				},
 			},
 			draggable: false,
 			content: 'paragraph block*',
@@ -71,12 +71,12 @@ export default class ListItem extends TiptapListItem {
 					listAttributes,
 					[
 						'input',
-						checkboxAttributes
+						checkboxAttributes,
 					],
 					[
 						'label',
-						0
-					]
+						0,
+					],
 				]
 			},
 			parseDOM: [
@@ -86,15 +86,15 @@ export default class ListItem extends TiptapListItem {
 					getAttrs: el => {
 						const checkbox = el.querySelector('input[type=checkbox]')
 						return { done: checkbox && checkbox.checked, type: checkbox ? TYPES.CHECKBOX : TYPES.BULLET }
-					}
-				}
+					},
+				},
 			],
 			toMarkdown: (state, node) => {
 				if (node.attrs.type === TYPES.CHECKBOX) {
 					state.write(`[${node.attrs.done ? 'x' : ' '}] `)
 				}
 				state.renderContent(node)
-			}
+			},
 		}
 	}
 
@@ -135,7 +135,7 @@ export default class ListItem extends TiptapListItem {
 					}
 
 				}
-			}
+			},
 		}
 	}
 
@@ -160,9 +160,9 @@ export default class ListItem extends TiptapListItem {
 						const tr = state.tr
 						tr.setNodeMarkup(parentList.pos, schema.nodes.list_item, { done: !parentList.node.attrs.done, type: TYPES.CHECKBOX })
 						view.dispatch(tr)
-					}
-				}
-			})
+					},
+				},
+			}),
 		]
 	}
 

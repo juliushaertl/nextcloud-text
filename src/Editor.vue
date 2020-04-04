@@ -36,44 +36,42 @@
 
 <script>
 import Vue from 'vue'
-import { createEditor, markdownit, createMarkdownSerializer, serializePlainText, loadSyntaxHighlight, MarkdownEditor } from './editor'
-import { Editor, EditorContent, EditorMenuBar } from 'tiptap'
+import { createEditor, MarkdownEditor } from './editor'
+import { EditorContent, Editor as TiptapEditor } from 'tiptap'
 import MenuBar from './components/MenuBar'
 import MenuBubble from './components/MenuBubble'
-import { Editor as TiptapEditor } from 'tiptap'
 
 Vue.prototype.t = (app, text) => text
 
 const EDITOR_TYPES = {
 	PLAIN: 'plain',
 	MARKDOWN: 'markdown',
-	RICH: 'rich'
+	RICH: 'rich',
 }
 export default {
 	name: 'Editor',
 	components: {
 		EditorContent,
-		EditorMenuBar,
 		MenuBar,
-		MenuBubble
+		MenuBubble,
 	},
 	props: {
 		editorProps: {
 			type: Object,
-			default: () => { return {} }
+			default: () => { return {} },
 		},
 		type: {
 			type: String,
-			default: EDITOR_TYPES.RICH
+			default: EDITOR_TYPES.RICH,
 		},
 		content: {
 			type: String,
-			default: ''
-		}
+			default: '',
+		},
 	},
 	data() {
 		return {
-			editor: null
+			editor: null,
 		}
 	},
 	mounted() {
@@ -96,7 +94,7 @@ export default {
 	},
 	beforeDestroy() {
 		this.editor.destroy()
-	}
+	},
 }
 </script>
 <style scoped lang="scss">

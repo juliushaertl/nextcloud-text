@@ -2,9 +2,12 @@ textarea {
     width: 100%;
     height: 200px;
 }
+
+/* These styles are assumed to be present by the @nextcloud/vue components */
 :root {
 	--color-main-text: #222;
 	--color-main-background: #fff;
+    --color-main-background-translucent: rgba(255,255,255, 0.97)
 	--color-background-hover: whitesmoke;
 	--color-background-dark: #ededed;
 	--color-background-darker: #dbdbdb;
@@ -42,20 +45,6 @@ ul, ul li {
 	list-style: none;
     margin: 0;
     padding: 0;
-}
-
-
-.ie .bubble, .ie .bubble:after,
-.ie .popovermenu, .ie .popovermenu:after,
-.ie #app-navigation .app-navigation-entry-menu,
-.ie #app-navigation .app-navigation-entry-menu:after,
-.edge .bubble,
-.edge .bubble:after,
-.edge .popovermenu,
-.edge .popovermenu:after,
-.edge #app-navigation .app-navigation-entry-menu,
-.edge #app-navigation .app-navigation-entry-menu:after {
-  border: 1px solid var(--color-border);
 }
 
 .bubble,

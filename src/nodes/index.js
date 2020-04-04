@@ -27,5 +27,5 @@ import ListItem from './ListItem'
 export {
 	Image,
 	PlainTextDocument,
-	ListItem
+	ListItem,
 }

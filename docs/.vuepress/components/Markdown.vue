@@ -89,9 +89,3 @@ sororibus ramisque si siquis tamen nati *dicta*.`
     }
 }
 </script>
-<style>
-.editor {
-    overflow:scroll;
-    height: 400px;
-}
-</style>

@@ -109,6 +109,10 @@ export default {
 			type: Boolean,
 			default: false,
 		},
+		callbacks: {
+			type: Object,
+			default: () => ({}),
+		},
 	},
 	data: () => {
 		return {
@@ -134,11 +138,11 @@ export default {
 		},
 		isChildMenuVisible() {
 			return (icon) => {
-				return this.submenuVisibility.hasOwnProperty(icon.label) ? this.submenuVisibility[icon.label] : false
+				return Object.prototype.hasOwnProperty.call(this.submenuVisibility, icon.label) ? this.submenuVisibility[icon.label] : false
 			}
 		},
 		allIcons() {
-			if (this.isPublic) {
+			if (this.isPublic || !this.callbacks.selectImage) {
 				return this.icons
 			}
 			return [...this.icons, {
@@ -147,7 +151,7 @@ export default {
 				isActive: () => {
 				},
 				action: (commands) => {
-					this.showImagePrompt(commands.image)
+					this.callbacks.selectImage(commands.image)
 				},
 			}]
 		},
@@ -222,38 +226,8 @@ export default {
 			this.$set(this.submenuVisibility, icon.label, false)
 		},
 		toggleChildMenu(icon) {
-			const lastValue = this.submenuVisibility.hasOwnProperty(icon.label) ? this.submenuVisibility[icon.label] : false
+			const lastValue = Object.prototype.hasOwnProperty.call(this.submenuVisibility, icon.label) ? this.submenuVisibility[icon.label] : false
 			this.$set(this.submenuVisibility, icon.label, !lastValue)
-		},
-		showImagePrompt(command) {
-			const currentUser = OC.getCurrentUser()
-			if (!currentUser) {
-				return
-			}
-			const _command = command
-			OC.dialogs.filepicker('Insert an image', (file) => {
-				fetchFileInfo(currentUser.uid, file).then((info) => {
-					const fileInfo = info[0]
-					console.debug(fileInfo)
-					const previewUrl = OC.generateUrl('/core/preview?') + `fileId=${fileInfo.id}&x=1024&y=1024&a=true`
-					const internalLink = OC.generateUrl('/f/' + fileInfo.id)
-
-					// dirty but works so we have the information stored in markdown
-					const appendMeta = {
-						mimetype: fileInfo.mimetype,
-						hasPreview: fileInfo.hasPreview,
-						fileId: fileInfo.id,
-					}
-					const src = (fileInfo.hasPreview ? previewUrl : internalLink)
-						+ '#'
-						+ Object.entries(appendMeta).map(([key, val]) => `${key}=${encodeURIComponent(val)}`).join('&')
-
-					_command({
-						src: src,
-						alt: fileInfo.name,
-					})
-				})
-			}, false, [], true)
 		},
 	},
 }

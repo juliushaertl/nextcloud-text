@@ -33,10 +33,10 @@ import {
 	CodeBlockHighlight,
 	HorizontalRule,
 	History,
-	Placeholder
+	Placeholder,
 } from 'tiptap-extensions'
 import { Strong, Italic, Strike } from './marks'
-import { Image, PlainTextDocument, ListItem } from './nodes'
+import { PlainTextDocument, ListItem } from './nodes'
 import MarkdownIt from 'markdown-it'
 import taskLists from 'markdown-it-task-lists'
 
@@ -47,7 +47,7 @@ export class MarkdownEditor extends TiptapEditor {
 	constructor(options) {
 		super({
 			...options,
-			content: markdownit.render(options.content)
+			content: markdownit.render(options.content),
 		})
 	}
 
@@ -99,22 +99,22 @@ const createEditor = ({ editorClass, content, onInit, onUpdate, extensions, enab
 			new CodeBlock(),
 			new ListItem(),
 			new Link({
-				openOnClick: true
+				openOnClick: true,
 			}),
 			// new Image(),
 			new Placeholder({
 				emptyNodeClass: 'is-empty',
 				emptyNodeText: 'Add notes, lists or links …',
-				showOnlyWhenEditable: true
-			})
+				showOnlyWhenEditable: true,
+			}),
 		]
 	} else {
 		richEditingExtensions = [
 			new PlainTextDocument(),
 			new Text(),
 			new CodeBlockHighlight({
-				...languages
-			})
+				...languages,
+			}),
 		]
 	}
 	extensions = extensions || []
@@ -124,17 +124,18 @@ const createEditor = ({ editorClass, content, onInit, onUpdate, extensions, enab
 		onUpdate: onUpdate,
 		extensions: [
 			...richEditingExtensions,
-			new History()
+			new History(),
 		].concat(extensions),
-		useBuiltInExtensions: enableRichEditing
+		useBuiltInExtensions: enableRichEditing,
 	}
 	if (editorClass) {
 		const editorClasses = {
-			class: editorClass
+			class: editorClass,
 		}
-		return new editorClasses['class'](params)
+		// eslint-disable-next-line new-cap
+		return new editorClasses.class(params)
 	}
-	return new Editor(params)
+	return new TiptapEditor(params)
 }
 
 const markdownit = MarkdownIt('commonmark', { html: false, breaks: false })
@@ -150,7 +151,7 @@ const createMarkdownSerializer = (_nodes, _marks) => {
 		.filter(([, node]) => node.toMarkdown)
 		.reduce((items, [name, { toMarkdown }]) => ({
 			...items,
-			[name]: toMarkdown
+			[name]: toMarkdown,
 		}), {})
 
 	const marks = Object
@@ -158,7 +159,7 @@ const createMarkdownSerializer = (_nodes, _marks) => {
 		.filter(([, node]) => node.toMarkdown)
 		.reduce((items, [name, { toMarkdown }]) => ({
 			...items,
-			[name]: toMarkdown
+			[name]: toMarkdown,
 		}), {})
 	return {
 		serializer: new MarkdownSerializer(
@@ -169,7 +170,7 @@ const createMarkdownSerializer = (_nodes, _marks) => {
 			return this.serializer.serialize(content, { ...options, tightLists: true })
 				.split('\\[').join('[')
 				.split('\\]').join(']')
-		}
+		},
 	}
 }
 
