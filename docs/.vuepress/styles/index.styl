@@ -1,0 +1,554 @@
+textarea {
+    width: 100%;
+    height: 200px;
+}
+:root {
+	--color-main-text: #222;
+	--color-main-background: #fff;
+	--color-background-hover: whitesmoke;
+	--color-background-dark: #ededed;
+	--color-background-darker: #dbdbdb;
+	--color-primary: #0082c9;
+	--color-primary-light: #e6f3fa;
+	--color-primary-text: #ffffff;
+	--color-primary-text-dark: #ededed;
+	--color-primary-element: #0082c9;
+	--color-primary-element-light: #17adff;
+	--color-error: #e9322d;
+	--color-warning: #eca700;
+	--color-success: #46ba61;
+	--color-text-maxcontrast: #989898;
+	--color-text-light: #484848;
+	--color-text-lighter: #6f6f6f;
+	--color-loading-light: #ccc;
+	--color-loading-dark: #444;
+	--color-box-shadow: rgba(77, 77, 77, 0.5);
+	--color-border: #ededed;
+	--color-border-dark: #dbdbdb;
+	--border-radius: 3px;
+	--border-radius-large: 10px;
+	--border-radius-pill: 100px;
+	--font-face: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	--animation-quick: 100ms;
+	--animation-slow: 300ms;
+}
+
+.popovermenu ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul, ul li {
+	list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.ie .bubble, .ie .bubble:after,
+.ie .popovermenu, .ie .popovermenu:after,
+.ie #app-navigation .app-navigation-entry-menu,
+.ie #app-navigation .app-navigation-entry-menu:after,
+.edge .bubble,
+.edge .bubble:after,
+.edge .popovermenu,
+.edge .popovermenu:after,
+.edge #app-navigation .app-navigation-entry-menu,
+.edge #app-navigation .app-navigation-entry-menu:after {
+  border: 1px solid var(--color-border);
+}
+
+.bubble,
+.app-navigation-entry-menu,
+.popovermenu {
+  position: absolute;
+  background-color: var(--color-main-background);
+  color: var(--color-main-text);
+  border-radius: var(--border-radius);
+  z-index: 110;
+  margin: 5px;
+  margin-top: -5px;
+  right: 0;
+  filter: drop-shadow(0 1px 3px var(--color-box-shadow));
+  display: none;
+  will-change: filter;
+  /* Center the popover */
+  /* Align the popover to the left */
+}
+.bubble:after,
+.app-navigation-entry-menu:after,
+.popovermenu:after {
+  bottom: 100%;
+  right: 7px;
+  /* change this to adjust the arrow position */
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-bottom-color: var(--color-main-background);
+  border-width: 9px;
+}
+.bubble.menu-center,
+.app-navigation-entry-menu.menu-center,
+.popovermenu.menu-center {
+  transform: translateX(50%);
+  right: 50%;
+  margin-right: 0;
+}
+.bubble.menu-center:after,
+.app-navigation-entry-menu.menu-center:after,
+.popovermenu.menu-center:after {
+  right: 50%;
+  transform: translateX(50%);
+}
+.bubble.menu-left,
+.app-navigation-entry-menu.menu-left,
+.popovermenu.menu-left {
+  right: auto;
+  left: 0;
+  margin-right: 0;
+}
+.bubble.menu-left:after,
+.app-navigation-entry-menu.menu-left:after,
+.popovermenu.menu-left:after {
+  left: 6px;
+  right: auto;
+}
+.bubble.open,
+.app-navigation-entry-menu.open,
+.popovermenu.open {
+  display: block;
+}
+.bubble.contactsmenu-popover,
+.app-navigation-entry-menu.contactsmenu-popover,
+.popovermenu.contactsmenu-popover {
+  margin: 0;
+}
+.bubble ul,
+.app-navigation-entry-menu ul,
+.popovermenu ul {
+  /* Overwrite #app-navigation > ul ul */
+  display: flex !important;
+  flex-direction: column;
+}
+.bubble li,
+.app-navigation-entry-menu li,
+.popovermenu li {
+  display: flex;
+  flex: 0 0 auto;
+  /* css hack, only first not hidden */
+}
+.bubble li.hidden,
+.app-navigation-entry-menu li.hidden,
+.popovermenu li.hidden {
+  display: none;
+}
+.bubble li > button,
+.bubble li > a,
+.bubble li > .menuitem,
+.app-navigation-entry-menu li > button,
+.app-navigation-entry-menu li > a,
+.app-navigation-entry-menu li > .menuitem,
+.popovermenu li > button,
+.popovermenu li > a,
+.popovermenu li > .menuitem {
+  cursor: pointer;
+  line-height: 44px;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  display: flex;
+  align-items: flex-start;
+  height: auto;
+  margin: 0;
+  font-weight: normal;
+  box-shadow: none;
+  width: 100%;
+  color: var(--color-main-text);
+  white-space: nowrap;
+  /* Override the app-navigation li opacity */
+  opacity: 0.7 !important;
+  /* prevent .action class to break the design */
+  /* Add padding if contains icon+text */
+  /* DEPRECATED! old img in popover fallback
+   * TODO: to remove */
+  /* checkbox/radio fixes */
+  /* no margin if hidden span before */
+  /* Inputs inside popover supports text, submit & reset */
+}
+.bubble li > button span[class^=icon-],
+.bubble li > button span[class*=" icon-"], .bubble li > button[class^=icon-], .bubble li > button[class*=" icon-"],
+.bubble li > a span[class^=icon-],
+.bubble li > a span[class*=" icon-"],
+.bubble li > a[class^=icon-],
+.bubble li > a[class*=" icon-"],
+.bubble li > .menuitem span[class^=icon-],
+.bubble li > .menuitem span[class*=" icon-"],
+.bubble li > .menuitem[class^=icon-],
+.bubble li > .menuitem[class*=" icon-"],
+.app-navigation-entry-menu li > button span[class^=icon-],
+.app-navigation-entry-menu li > button span[class*=" icon-"],
+.app-navigation-entry-menu li > button[class^=icon-],
+.app-navigation-entry-menu li > button[class*=" icon-"],
+.app-navigation-entry-menu li > a span[class^=icon-],
+.app-navigation-entry-menu li > a span[class*=" icon-"],
+.app-navigation-entry-menu li > a[class^=icon-],
+.app-navigation-entry-menu li > a[class*=" icon-"],
+.app-navigation-entry-menu li > .menuitem span[class^=icon-],
+.app-navigation-entry-menu li > .menuitem span[class*=" icon-"],
+.app-navigation-entry-menu li > .menuitem[class^=icon-],
+.app-navigation-entry-menu li > .menuitem[class*=" icon-"],
+.popovermenu li > button span[class^=icon-],
+.popovermenu li > button span[class*=" icon-"],
+.popovermenu li > button[class^=icon-],
+.popovermenu li > button[class*=" icon-"],
+.popovermenu li > a span[class^=icon-],
+.popovermenu li > a span[class*=" icon-"],
+.popovermenu li > a[class^=icon-],
+.popovermenu li > a[class*=" icon-"],
+.popovermenu li > .menuitem span[class^=icon-],
+.popovermenu li > .menuitem span[class*=" icon-"],
+.popovermenu li > .menuitem[class^=icon-],
+.popovermenu li > .menuitem[class*=" icon-"] {
+  min-width: 0;
+  /* Overwrite icons*/
+  min-height: 0;
+  background-position: 14px center;
+  background-size: 16px;
+}
+.bubble li > button span[class^=icon-],
+.bubble li > button span[class*=" icon-"],
+.bubble li > a span[class^=icon-],
+.bubble li > a span[class*=" icon-"],
+.bubble li > .menuitem span[class^=icon-],
+.bubble li > .menuitem span[class*=" icon-"],
+.app-navigation-entry-menu li > button span[class^=icon-],
+.app-navigation-entry-menu li > button span[class*=" icon-"],
+.app-navigation-entry-menu li > a span[class^=icon-],
+.app-navigation-entry-menu li > a span[class*=" icon-"],
+.app-navigation-entry-menu li > .menuitem span[class^=icon-],
+.app-navigation-entry-menu li > .menuitem span[class*=" icon-"],
+.popovermenu li > button span[class^=icon-],
+.popovermenu li > button span[class*=" icon-"],
+.popovermenu li > a span[class^=icon-],
+.popovermenu li > a span[class*=" icon-"],
+.popovermenu li > .menuitem span[class^=icon-],
+.popovermenu li > .menuitem span[class*=" icon-"] {
+  /* Keep padding to define the width to
+   assure correct position of a possible text */
+  padding: 22px 0 22px 44px;
+}
+.bubble li > button:not([class^=icon-]):not([class*=icon-]) > span:not([class^=icon-]):not([class*=icon-]):first-child,
+.bubble li > button:not([class^=icon-]):not([class*=icon-]) > input:not([class^=icon-]):not([class*=icon-]):first-child,
+.bubble li > button:not([class^=icon-]):not([class*=icon-]) > form:not([class^=icon-]):not([class*=icon-]):first-child,
+.bubble li > a:not([class^=icon-]):not([class*=icon-]) > span:not([class^=icon-]):not([class*=icon-]):first-child,
+.bubble li > a:not([class^=icon-]):not([class*=icon-]) > input:not([class^=icon-]):not([class*=icon-]):first-child,
+.bubble li > a:not([class^=icon-]):not([class*=icon-]) > form:not([class^=icon-]):not([class*=icon-]):first-child,
+.bubble li > .menuitem:not([class^=icon-]):not([class*=icon-]) > span:not([class^=icon-]):not([class*=icon-]):first-child,
+.bubble li > .menuitem:not([class^=icon-]):not([class*=icon-]) > input:not([class^=icon-]):not([class*=icon-]):first-child,
+.bubble li > .menuitem:not([class^=icon-]):not([class*=icon-]) > form:not([class^=icon-]):not([class*=icon-]):first-child,
+.app-navigation-entry-menu li > button:not([class^=icon-]):not([class*=icon-]) > span:not([class^=icon-]):not([class*=icon-]):first-child,
+.app-navigation-entry-menu li > button:not([class^=icon-]):not([class*=icon-]) > input:not([class^=icon-]):not([class*=icon-]):first-child,
+.app-navigation-entry-menu li > button:not([class^=icon-]):not([class*=icon-]) > form:not([class^=icon-]):not([class*=icon-]):first-child,
+.app-navigation-entry-menu li > a:not([class^=icon-]):not([class*=icon-]) > span:not([class^=icon-]):not([class*=icon-]):first-child,
+.app-navigation-entry-menu li > a:not([class^=icon-]):not([class*=icon-]) > input:not([class^=icon-]):not([class*=icon-]):first-child,
+.app-navigation-entry-menu li > a:not([class^=icon-]):not([class*=icon-]) > form:not([class^=icon-]):not([class*=icon-]):first-child,
+.app-navigation-entry-menu li > .menuitem:not([class^=icon-]):not([class*=icon-]) > span:not([class^=icon-]):not([class*=icon-]):first-child,
+.app-navigation-entry-menu li > .menuitem:not([class^=icon-]):not([class*=icon-]) > input:not([class^=icon-]):not([class*=icon-]):first-child,
+.app-navigation-entry-menu li > .menuitem:not([class^=icon-]):not([class*=icon-]) > form:not([class^=icon-]):not([class*=icon-]):first-child,
+.popovermenu li > button:not([class^=icon-]):not([class*=icon-]) > span:not([class^=icon-]):not([class*=icon-]):first-child,
+.popovermenu li > button:not([class^=icon-]):not([class*=icon-]) > input:not([class^=icon-]):not([class*=icon-]):first-child,
+.popovermenu li > button:not([class^=icon-]):not([class*=icon-]) > form:not([class^=icon-]):not([class*=icon-]):first-child,
+.popovermenu li > a:not([class^=icon-]):not([class*=icon-]) > span:not([class^=icon-]):not([class*=icon-]):first-child,
+.popovermenu li > a:not([class^=icon-]):not([class*=icon-]) > input:not([class^=icon-]):not([class*=icon-]):first-child,
+.popovermenu li > a:not([class^=icon-]):not([class*=icon-]) > form:not([class^=icon-]):not([class*=icon-]):first-child,
+.popovermenu li > .menuitem:not([class^=icon-]):not([class*=icon-]) > span:not([class^=icon-]):not([class*=icon-]):first-child,
+.popovermenu li > .menuitem:not([class^=icon-]):not([class*=icon-]) > input:not([class^=icon-]):not([class*=icon-]):first-child,
+.popovermenu li > .menuitem:not([class^=icon-]):not([class*=icon-]) > form:not([class^=icon-]):not([class*=icon-]):first-child {
+  margin-left: 44px;
+}
+.bubble li > button[class^=icon-], .bubble li > button[class*=" icon-"],
+.bubble li > a[class^=icon-],
+.bubble li > a[class*=" icon-"],
+.bubble li > .menuitem[class^=icon-],
+.bubble li > .menuitem[class*=" icon-"],
+.app-navigation-entry-menu li > button[class^=icon-],
+.app-navigation-entry-menu li > button[class*=" icon-"],
+.app-navigation-entry-menu li > a[class^=icon-],
+.app-navigation-entry-menu li > a[class*=" icon-"],
+.app-navigation-entry-menu li > .menuitem[class^=icon-],
+.app-navigation-entry-menu li > .menuitem[class*=" icon-"],
+.popovermenu li > button[class^=icon-],
+.popovermenu li > button[class*=" icon-"],
+.popovermenu li > a[class^=icon-],
+.popovermenu li > a[class*=" icon-"],
+.popovermenu li > .menuitem[class^=icon-],
+.popovermenu li > .menuitem[class*=" icon-"] {
+  padding: 0 14px 0 44px !important;
+}
+.bubble li > button:hover, .bubble li > button:focus, .bubble li > button.active,
+.bubble li > a:hover,
+.bubble li > a:focus,
+.bubble li > a.active,
+.bubble li > .menuitem:hover,
+.bubble li > .menuitem:focus,
+.bubble li > .menuitem.active,
+.app-navigation-entry-menu li > button:hover,
+.app-navigation-entry-menu li > button:focus,
+.app-navigation-entry-menu li > button.active,
+.app-navigation-entry-menu li > a:hover,
+.app-navigation-entry-menu li > a:focus,
+.app-navigation-entry-menu li > a.active,
+.app-navigation-entry-menu li > .menuitem:hover,
+.app-navigation-entry-menu li > .menuitem:focus,
+.app-navigation-entry-menu li > .menuitem.active,
+.popovermenu li > button:hover,
+.popovermenu li > button:focus,
+.popovermenu li > button.active,
+.popovermenu li > a:hover,
+.popovermenu li > a:focus,
+.popovermenu li > a.active,
+.popovermenu li > .menuitem:hover,
+.popovermenu li > .menuitem:focus,
+.popovermenu li > .menuitem.active {
+  opacity: 1 !important;
+}
+.bubble li > button.action,
+.bubble li > a.action,
+.bubble li > .menuitem.action,
+.app-navigation-entry-menu li > button.action,
+.app-navigation-entry-menu li > a.action,
+.app-navigation-entry-menu li > .menuitem.action,
+.popovermenu li > button.action,
+.popovermenu li > a.action,
+.popovermenu li > .menuitem.action {
+  padding: inherit !important;
+}
+.bubble li > button > span,
+.bubble li > a > span,
+.bubble li > .menuitem > span,
+.app-navigation-entry-menu li > button > span,
+.app-navigation-entry-menu li > a > span,
+.app-navigation-entry-menu li > .menuitem > span,
+.popovermenu li > button > span,
+.popovermenu li > a > span,
+.popovermenu li > .menuitem > span {
+  cursor: pointer;
+  white-space: nowrap;
+}
+.bubble li > button > p,
+.bubble li > a > p,
+.bubble li > .menuitem > p,
+.app-navigation-entry-menu li > button > p,
+.app-navigation-entry-menu li > a > p,
+.app-navigation-entry-menu li > .menuitem > p,
+.popovermenu li > button > p,
+.popovermenu li > a > p,
+.popovermenu li > .menuitem > p {
+  width: 150px;
+  line-height: 1.6em;
+  padding: 8px 0;
+  white-space: normal;
+}
+.bubble li > button > select,
+.bubble li > a > select,
+.bubble li > .menuitem > select,
+.app-navigation-entry-menu li > button > select,
+.app-navigation-entry-menu li > a > select,
+.app-navigation-entry-menu li > .menuitem > select,
+.popovermenu li > button > select,
+.popovermenu li > a > select,
+.popovermenu li > .menuitem > select {
+  margin: 0;
+  margin-left: 6px;
+}
+.bubble li > button:not(:empty),
+.bubble li > a:not(:empty),
+.bubble li > .menuitem:not(:empty),
+.app-navigation-entry-menu li > button:not(:empty),
+.app-navigation-entry-menu li > a:not(:empty),
+.app-navigation-entry-menu li > .menuitem:not(:empty),
+.popovermenu li > button:not(:empty),
+.popovermenu li > a:not(:empty),
+.popovermenu li > .menuitem:not(:empty) {
+  padding-right: 14px !important;
+}
+.bubble li > button > img,
+.bubble li > a > img,
+.bubble li > .menuitem > img,
+.app-navigation-entry-menu li > button > img,
+.app-navigation-entry-menu li > a > img,
+.app-navigation-entry-menu li > .menuitem > img,
+.popovermenu li > button > img,
+.popovermenu li > a > img,
+.popovermenu li > .menuitem > img {
+  width: 16px;
+  padding: 14px;
+}
+.bubble li > button > input.radio + label,
+.bubble li > button > input.checkbox + label,
+.bubble li > a > input.radio + label,
+.bubble li > a > input.checkbox + label,
+.bubble li > .menuitem > input.radio + label,
+.bubble li > .menuitem > input.checkbox + label,
+.app-navigation-entry-menu li > button > input.radio + label,
+.app-navigation-entry-menu li > button > input.checkbox + label,
+.app-navigation-entry-menu li > a > input.radio + label,
+.app-navigation-entry-menu li > a > input.checkbox + label,
+.app-navigation-entry-menu li > .menuitem > input.radio + label,
+.app-navigation-entry-menu li > .menuitem > input.checkbox + label,
+.popovermenu li > button > input.radio + label,
+.popovermenu li > button > input.checkbox + label,
+.popovermenu li > a > input.radio + label,
+.popovermenu li > a > input.checkbox + label,
+.popovermenu li > .menuitem > input.radio + label,
+.popovermenu li > .menuitem > input.checkbox + label {
+  padding: 0 !important;
+  width: 100%;
+}
+.bubble li > button > input.checkbox + label::before,
+.bubble li > a > input.checkbox + label::before,
+.bubble li > .menuitem > input.checkbox + label::before,
+.app-navigation-entry-menu li > button > input.checkbox + label::before,
+.app-navigation-entry-menu li > a > input.checkbox + label::before,
+.app-navigation-entry-menu li > .menuitem > input.checkbox + label::before,
+.popovermenu li > button > input.checkbox + label::before,
+.popovermenu li > a > input.checkbox + label::before,
+.popovermenu li > .menuitem > input.checkbox + label::before {
+  margin: -2px 13px 0;
+}
+.bubble li > button > input.radio + label::before,
+.bubble li > a > input.radio + label::before,
+.bubble li > .menuitem > input.radio + label::before,
+.app-navigation-entry-menu li > button > input.radio + label::before,
+.app-navigation-entry-menu li > a > input.radio + label::before,
+.app-navigation-entry-menu li > .menuitem > input.radio + label::before,
+.popovermenu li > button > input.radio + label::before,
+.popovermenu li > a > input.radio + label::before,
+.popovermenu li > .menuitem > input.radio + label::before {
+  margin: -2px 12px 0;
+}
+.bubble li > button > input:not([type=radio]):not([type=checkbox]):not([type=image]),
+.bubble li > a > input:not([type=radio]):not([type=checkbox]):not([type=image]),
+.bubble li > .menuitem > input:not([type=radio]):not([type=checkbox]):not([type=image]),
+.app-navigation-entry-menu li > button > input:not([type=radio]):not([type=checkbox]):not([type=image]),
+.app-navigation-entry-menu li > a > input:not([type=radio]):not([type=checkbox]):not([type=image]),
+.app-navigation-entry-menu li > .menuitem > input:not([type=radio]):not([type=checkbox]):not([type=image]),
+.popovermenu li > button > input:not([type=radio]):not([type=checkbox]):not([type=image]),
+.popovermenu li > a > input:not([type=radio]):not([type=checkbox]):not([type=image]),
+.popovermenu li > .menuitem > input:not([type=radio]):not([type=checkbox]):not([type=image]) {
+  width: 150px;
+}
+.bubble li > button form,
+.bubble li > a form,
+.bubble li > .menuitem form,
+.app-navigation-entry-menu li > button form,
+.app-navigation-entry-menu li > a form,
+.app-navigation-entry-menu li > .menuitem form,
+.popovermenu li > button form,
+.popovermenu li > a form,
+.popovermenu li > .menuitem form {
+  display: flex;
+  flex: 1 1 auto;
+  /* put a small space between text and form
+     if there is an element before */
+}
+.bubble li > button form:not(:first-child),
+.bubble li > a form:not(:first-child),
+.bubble li > .menuitem form:not(:first-child),
+.app-navigation-entry-menu li > button form:not(:first-child),
+.app-navigation-entry-menu li > a form:not(:first-child),
+.app-navigation-entry-menu li > .menuitem form:not(:first-child),
+.popovermenu li > button form:not(:first-child),
+.popovermenu li > a form:not(:first-child),
+.popovermenu li > .menuitem form:not(:first-child) {
+  margin-left: 5px;
+}
+.bubble li > button > span.hidden + form,
+.bubble li > button > span[style*="display:none"] + form,
+.bubble li > a > span.hidden + form,
+.bubble li > a > span[style*="display:none"] + form,
+.bubble li > .menuitem > span.hidden + form,
+.bubble li > .menuitem > span[style*="display:none"] + form,
+.app-navigation-entry-menu li > button > span.hidden + form,
+.app-navigation-entry-menu li > button > span[style*="display:none"] + form,
+.app-navigation-entry-menu li > a > span.hidden + form,
+.app-navigation-entry-menu li > a > span[style*="display:none"] + form,
+.app-navigation-entry-menu li > .menuitem > span.hidden + form,
+.app-navigation-entry-menu li > .menuitem > span[style*="display:none"] + form,
+.popovermenu li > button > span.hidden + form,
+.popovermenu li > button > span[style*="display:none"] + form,
+.popovermenu li > a > span.hidden + form,
+.popovermenu li > a > span[style*="display:none"] + form,
+.popovermenu li > .menuitem > span.hidden + form,
+.popovermenu li > .menuitem > span[style*="display:none"] + form {
+  margin-left: 0;
+}
+.bubble li > button input,
+.bubble li > a input,
+.bubble li > .menuitem input,
+.app-navigation-entry-menu li > button input,
+.app-navigation-entry-menu li > a input,
+.app-navigation-entry-menu li > .menuitem input,
+.popovermenu li > button input,
+.popovermenu li > a input,
+.popovermenu li > .menuitem input {
+  min-width: 44px;
+  max-height: 40px;
+  /* twice the element margin-y */
+  margin: 2px 0;
+  flex: 1 1 auto;
+}
+.bubble li > button input:not(:first-child),
+.bubble li > a input:not(:first-child),
+.bubble li > .menuitem input:not(:first-child),
+.app-navigation-entry-menu li > button input:not(:first-child),
+.app-navigation-entry-menu li > a input:not(:first-child),
+.app-navigation-entry-menu li > .menuitem input:not(:first-child),
+.popovermenu li > button input:not(:first-child),
+.popovermenu li > a input:not(:first-child),
+.popovermenu li > .menuitem input:not(:first-child) {
+  margin-left: 5px;
+}
+.bubble li:not(.hidden):not([style*="display:none"]):first-of-type > button > form, .bubble li:not(.hidden):not([style*="display:none"]):first-of-type > button > input, .bubble li:not(.hidden):not([style*="display:none"]):first-of-type > a > form, .bubble li:not(.hidden):not([style*="display:none"]):first-of-type > a > input, .bubble li:not(.hidden):not([style*="display:none"]):first-of-type > .menuitem > form, .bubble li:not(.hidden):not([style*="display:none"]):first-of-type > .menuitem > input,
+.app-navigation-entry-menu li:not(.hidden):not([style*="display:none"]):first-of-type > button > form,
+.app-navigation-entry-menu li:not(.hidden):not([style*="display:none"]):first-of-type > button > input,
+.app-navigation-entry-menu li:not(.hidden):not([style*="display:none"]):first-of-type > a > form,
+.app-navigation-entry-menu li:not(.hidden):not([style*="display:none"]):first-of-type > a > input,
+.app-navigation-entry-menu li:not(.hidden):not([style*="display:none"]):first-of-type > .menuitem > form,
+.app-navigation-entry-menu li:not(.hidden):not([style*="display:none"]):first-of-type > .menuitem > input,
+.popovermenu li:not(.hidden):not([style*="display:none"]):first-of-type > button > form,
+.popovermenu li:not(.hidden):not([style*="display:none"]):first-of-type > button > input,
+.popovermenu li:not(.hidden):not([style*="display:none"]):first-of-type > a > form,
+.popovermenu li:not(.hidden):not([style*="display:none"]):first-of-type > a > input,
+.popovermenu li:not(.hidden):not([style*="display:none"]):first-of-type > .menuitem > form,
+.popovermenu li:not(.hidden):not([style*="display:none"]):first-of-type > .menuitem > input {
+  margin-top: 12px;
+}
+.bubble li:not(.hidden):not([style*="display:none"]):last-of-type > button > form, .bubble li:not(.hidden):not([style*="display:none"]):last-of-type > button > input, .bubble li:not(.hidden):not([style*="display:none"]):last-of-type > a > form, .bubble li:not(.hidden):not([style*="display:none"]):last-of-type > a > input, .bubble li:not(.hidden):not([style*="display:none"]):last-of-type > .menuitem > form, .bubble li:not(.hidden):not([style*="display:none"]):last-of-type > .menuitem > input,
+.app-navigation-entry-menu li:not(.hidden):not([style*="display:none"]):last-of-type > button > form,
+.app-navigation-entry-menu li:not(.hidden):not([style*="display:none"]):last-of-type > button > input,
+.app-navigation-entry-menu li:not(.hidden):not([style*="display:none"]):last-of-type > a > form,
+.app-navigation-entry-menu li:not(.hidden):not([style*="display:none"]):last-of-type > a > input,
+.app-navigation-entry-menu li:not(.hidden):not([style*="display:none"]):last-of-type > .menuitem > form,
+.app-navigation-entry-menu li:not(.hidden):not([style*="display:none"]):last-of-type > .menuitem > input,
+.popovermenu li:not(.hidden):not([style*="display:none"]):last-of-type > button > form,
+.popovermenu li:not(.hidden):not([style*="display:none"]):last-of-type > button > input,
+.popovermenu li:not(.hidden):not([style*="display:none"]):last-of-type > a > form,
+.popovermenu li:not(.hidden):not([style*="display:none"]):last-of-type > a > input,
+.popovermenu li:not(.hidden):not([style*="display:none"]):last-of-type > .menuitem > form,
+.popovermenu li:not(.hidden):not([style*="display:none"]):last-of-type > .menuitem > input {
+  margin-bottom: 12px;
+}
+.bubble li > button,
+.app-navigation-entry-menu li > button,
+.popovermenu li > button {
+  padding: 0;
+}
+.bubble li > button span,
+.app-navigation-entry-menu li > button span,
+.popovermenu li > button span {
+  opacity: 1;
+}
