@@ -71,12 +71,8 @@
 
 <script>
 import { EditorMenuBar } from 'tiptap'
-import Tooltip from '@nextcloud/vue/dist/Directives/Tooltip'
+import { Tooltip, Actions, ActionButton, PopoverMenu } from '@nextcloud/vue'
 import menuBarIcons from './../menubar'
-
-import Actions from '@nextcloud/vue/dist/Components/Actions'
-import ActionButton from '@nextcloud/vue/dist/Components/ActionButton'
-import PopoverMenu from '@nextcloud/vue/dist/Components/PopoverMenu'
 import ClickOutside from 'vue-click-outside'
 
 export default {
