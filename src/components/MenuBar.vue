@@ -72,7 +72,7 @@
 <script>
 import { EditorMenuBar } from 'tiptap'
 import { Tooltip, Actions, ActionButton, PopoverMenu } from '@nextcloud/vue'
-import menuBarIcons from './../menubar'
+import menuBarIcons from './../helpers/menubar'
 import ClickOutside from 'vue-click-outside'
 
 export default {

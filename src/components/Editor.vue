@@ -36,10 +36,10 @@
 
 <script>
 import Vue from 'vue'
-import { createEditor, MarkdownEditor } from './editor'
+import { createEditor, MarkdownEditor } from './../editor'
 import { EditorContent, Editor as TiptapEditor } from 'tiptap'
-import MenuBar from './components/MenuBar'
-import MenuBubble from './components/MenuBubble'
+import MenuBar from './MenuBar'
+import MenuBubble from './MenuBubble'
 
 Vue.prototype.t = (app, text) => text
 
@@ -100,7 +100,7 @@ export default {
 <style scoped lang="scss">
 @mixin icon($icon-name) {
 	.icon-#{$icon-name} {
-		background-image: url('./img/#{$icon-name}.svg');
+		background-image: url('./../img/#{$icon-name}.svg');
 		background-size: 16px;
 		background-repeat: no-repeat;
 	}
@@ -134,6 +134,6 @@ export default {
 	@include icon('underline');
 	@include icon('undo');
 
-	@import './prosemirror'
+	@import './../styles/prosemirror'
 }
 </style>

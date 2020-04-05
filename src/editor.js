@@ -20,7 +20,6 @@
  *
  */
 import { Editor as TiptapEditor, Text } from 'tiptap'
-
 import {
 	HardBreak,
 	Heading,
@@ -39,7 +38,6 @@ import { Strong, Italic, Strike } from './marks'
 import { PlainTextDocument, ListItem } from './nodes'
 import MarkdownIt from 'markdown-it'
 import taskLists from 'markdown-it-task-lists'
-
 import { MarkdownSerializer, defaultMarkdownSerializer } from 'prosemirror-markdown'
 
 export class MarkdownEditor extends TiptapEditor {
