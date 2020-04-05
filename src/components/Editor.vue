@@ -100,7 +100,7 @@ export default {
 <style scoped lang="scss">
 @mixin icon($icon-name) {
 	.icon-#{$icon-name} {
-		background-image: url('./../img/#{$icon-name}.svg');
+		background-image: url("../img/#{$icon-name}.svg");
 		background-size: 16px;
 		background-repeat: no-repeat;
 	}

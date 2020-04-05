@@ -7,6 +7,7 @@ import json from 'rollup-plugin-json'
 import { eslint } from 'rollup-plugin-eslint'
 import alias from 'rollup-plugin-alias'
 import terser from 'rollup-plugin-terser'
+import url from 'postcss-url'
 import analyze from 'rollup-plugin-analyzer'
 
 const isProduction = process.env.NODE_ENV === 'production'
@@ -19,10 +20,14 @@ export default {
 			'vue',
 			'@nextcloud/vue',
 			'v-tooltip',
-			// not used at the moment
-			'prosemirror-tables',
 		]
 		if (externals.includes(id)) {
+			return true
+		}
+		if (id.startsWith('tiptap')) {
+			return true
+		}
+		if (id.startsWith('prosemirror')) {
 			return true
 		}
 		return false
@@ -39,6 +44,11 @@ export default {
 			compileTemplate: true, // Explicitly convert template to render function
 			scss: {
 				indentedSyntax: true,
+			},
+			style: {
+				postcssPlugins: [
+					url({ url: 'inline' })
+				],
 			},
 		}),
 		babel({

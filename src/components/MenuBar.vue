@@ -251,7 +251,8 @@ export default {
 		}
 		.menubar-icons {
 			flex-grow: 1;
-			margin-left: calc((100% - 660px) / 2);
+			// FIXME: Move to text since we cannot enforce this if other apps use a smaller editor window
+			// margin-left: calc((100% - 660px) / 2);
 		}
 		@media (max-width: 660px) {
 			.menubar-icons {
