@@ -10229,15 +10229,6 @@ tiptap-extensions@^1.29.0:
     tiptap "^1.27.0"
     tiptap-commands "^1.13.0"
 
-tiptap-utils@^1.8.3:
-  version "1.8.4"
-  resolved "https://registry.yarnpkg.com/tiptap-utils/-/tiptap-utils-1.8.4.tgz#5465c41abbbd0ddb127d22a1bb56e64cf3f3ff03"
-  dependencies:
-    prosemirror-model "1.9.1"
-    prosemirror-state "1.3.3"
-    prosemirror-tables "1.0.0"
-    prosemirror-utils "0.9.6"
-
 tiptap-utils@^1.9.0:
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/tiptap-utils/-/tiptap-utils-1.9.0.tgz#64e532f250efe623ffff74650ff850f17a3618b2"
