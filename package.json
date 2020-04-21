@@ -88,7 +88,7 @@
 		"postcss-url": "^8.0.0",
 		"prettier-eslint": "^9.0.1",
 		"resolve-url-loader": "^3.1.1",
-		"rollup": "^2.3.4",
+		"rollup": "^2.6.1",
 		"rollup-plugin-alias": "^2.2.0",
 		"rollup-plugin-analyzer": "^3.2.2",
 		"rollup-plugin-babel": "^4.3.2",
