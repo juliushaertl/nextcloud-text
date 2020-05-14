@@ -950,14 +950,14 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@nextcloud/auth@^1.2.2":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@nextcloud/auth/-/auth-1.2.2.tgz#594b232882e7943e3c8d6f72f8a583d0be97aea5"
+"@nextcloud/auth@^1.2.2", "@nextcloud/auth@^1.2.3":
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/@nextcloud/auth/-/auth-1.2.3.tgz#338a7e93d485384b321855ea103536b9a1b33e2e"
   dependencies:
     "@nextcloud/event-bus" "^1.1.3"
-    core-js "3.6.4"
+    core-js "^3.6.4"
 
-"@nextcloud/axios@^1.1.0":
+"@nextcloud/axios@^1.3.2":
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/@nextcloud/axios/-/axios-1.3.2.tgz#795d8c3ada4a6032c67356492fc3ce0b08358f2b"
   dependencies:
@@ -983,47 +983,48 @@
   dependencies:
     requireindex "~1.2.0"
 
-"@nextcloud/event-bus@^1.1.3":
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/@nextcloud/event-bus/-/event-bus-1.1.3.tgz#95e07c6d8af5bac30513bc6d689e8cb6df538ce4"
+"@nextcloud/event-bus@^1.1.3", "@nextcloud/event-bus@^1.1.4":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@nextcloud/event-bus/-/event-bus-1.1.4.tgz#73fd5cdf02c68f72e3bd3ef24fa91c6ff51765df"
   dependencies:
     "@types/semver" "^6.2.1"
     core-js "^3.6.2"
     semver "^6.3.0"
 
-"@nextcloud/l10n@^1.1.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@nextcloud/l10n/-/l10n-1.2.0.tgz#9ecc2729d7ea1da81d45d6818a81b802a70540e9"
+"@nextcloud/l10n@^1.2.3":
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/@nextcloud/l10n/-/l10n-1.2.3.tgz#4f5e4511557c765024ba4b8c132768b97a9c417e"
   dependencies:
     core-js "^3.6.4"
     node-gettext "^3.0.0"
 
-"@nextcloud/router@^1.0.0":
+"@nextcloud/router@^1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@nextcloud/router/-/router-1.0.2.tgz#da26fa9e43f1dcbcb2afc2ce9db7f16467b579da"
   dependencies:
     core-js "3.6.4"
 
-"@nextcloud/vue@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@nextcloud/vue/-/vue-1.5.0.tgz#5a8ddf180ec4225d633e0c1621c42932f0fb9d9f"
+"@nextcloud/vue@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@nextcloud/vue/-/vue-2.0.0.tgz#f08e6a9fa09667b4bb190510ef728e21ca4d8a19"
   dependencies:
-    "@nextcloud/axios" "^1.1.0"
-    "@nextcloud/l10n" "^1.1.0"
-    "@nextcloud/router" "^1.0.0"
-    core-js "^3.4.4"
+    "@nextcloud/auth" "^1.2.3"
+    "@nextcloud/axios" "^1.3.2"
+    "@nextcloud/event-bus" "^1.1.4"
+    "@nextcloud/l10n" "^1.2.3"
+    "@nextcloud/router" "^1.0.2"
+    core-js "^3.6.5"
     debounce "1.2.0"
-    escape-html "^1.0.3"
     hammerjs "^2.0.8"
     md5 "^2.2.1"
-    regenerator-runtime "^0.13.3"
-    v-click-outside "^3.0.0"
-    v-tooltip "^2.0.0-rc.33"
-    vue "^2.6.7"
-    vue-color "^2.7.0"
-    vue-multiselect "^2.1.3"
+    regenerator-runtime "^0.13.5"
+    v-click-outside "^3.0.1"
+    v-tooltip "^2.0.3"
+    vue "^2.6.11"
+    vue-color "^2.7.1"
+    vue-multiselect "^2.1.6"
     vue-visible "^1.0.2"
-    vue2-datepicker "^3.3.1"
+    vue2-datepicker "^3.4.1"
 
 "@nodelib/fs.scandir@2.1.3":
   version "2.1.3"
@@ -3100,7 +3101,7 @@ core-js@^2.4.0:
   version "2.6.11"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.11.tgz#38831469f9922bded8ee21c9dc46985e0399308c"
 
-core-js@^3.1.4, core-js@^3.4.4, core-js@^3.6.2, core-js@^3.6.4, core-js@^3.6.5:
+core-js@^3.1.4, core-js@^3.6.2, core-js@^3.6.4, core-js@^3.6.5:
   version "3.6.5"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.6.5.tgz#7395dc273af37fb2e50e9bd3d9fe841285231d1a"
 
@@ -8734,7 +8735,7 @@ regenerator-runtime@^0.11.0:
   version "0.11.1"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
 
-regenerator-runtime@^0.13.3, regenerator-runtime@^0.13.4:
+regenerator-runtime@^0.13.4, regenerator-runtime@^0.13.5:
   version "0.13.5"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.5.tgz#d878a1d094b4306d10b9096484b33ebd55e26697"
 
@@ -10716,11 +10717,11 @@ uuid@^3.0.1, uuid@^3.3.2:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
 
-v-click-outside@^3.0.0:
+v-click-outside@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/v-click-outside/-/v-click-outside-3.0.1.tgz#95870c199726069f4eda7eb5781ade62526dd269"
 
-v-tooltip@^2.0.0-rc.33:
+v-tooltip@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/v-tooltip/-/v-tooltip-2.0.3.tgz#34fd64096656f032b1616567bf62f6165c57d529"
   dependencies:
@@ -10796,7 +10797,7 @@ vue-click-outside@^1.0.7:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/vue-click-outside/-/vue-click-outside-1.0.7.tgz#cdd2b1605e3c4944784e1794eae4a12a0f700bd6"
 
-vue-color@^2.7.0:
+vue-color@^2.7.1:
   version "2.7.1"
   resolved "https://registry.yarnpkg.com/vue-color/-/vue-color-2.7.1.tgz#ca035109ea0010f0d60b889b97d63d37ac712f2d"
   dependencies:
@@ -10856,7 +10857,7 @@ vue-loader@^15.7.1:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-vue-multiselect@^2.1.3:
+vue-multiselect@^2.1.6:
   version "2.1.6"
   resolved "https://registry.yarnpkg.com/vue-multiselect/-/vue-multiselect-2.1.6.tgz#5be5d811a224804a15c43a4edbb7485028a89c7f"
 
@@ -10907,14 +10908,14 @@ vue-visible@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/vue-visible/-/vue-visible-1.0.2.tgz#4589036bbf3cfcf4cfbcb209ae8062e9b7cafa91"
 
-vue2-datepicker@^3.3.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/vue2-datepicker/-/vue2-datepicker-3.4.1.tgz#1a7456b44da54bbc0f43f26d0c7948faa1825766"
+vue2-datepicker@^3.4.1:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/vue2-datepicker/-/vue2-datepicker-3.5.0.tgz#d0dd5d74df866defda3fbaa9d666ac33a7dc609f"
   dependencies:
     date-fns "^2.0.1"
     date-format-parse "^0.2.5"
 
-vue@^2.6.10, vue@^2.6.11, vue@^2.6.7:
+vue@^2.6.10, vue@^2.6.11:
   version "2.6.11"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
 
