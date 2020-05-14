@@ -101,7 +101,7 @@
 		"rollup-plugin-replace": "^2.1.0",
 		"rollup-plugin-scss": "^2.4.0",
 		"rollup-plugin-terser": "^5.2.0",
-		"rollup-plugin-vue": "^5.1.6",
+		"rollup-plugin-vue": "^5.1.7",
 		"sass-loader": "^8.0.2",
 		"stylelint": "^13.3.3",
 		"stylelint-config-recommended-scss": "^4.2.0",
