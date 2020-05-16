@@ -38,9 +38,10 @@
 	"dependencies": {
 		"@nextcloud/vue": "^2.0.0",
 		"core-js": "^3.6.5",
+		"entities": "^2.0.0",
 		"escape-html": "^1.0.3",
 		"highlight.js": "^9.18.0",
-		"markdown-it": "^8.4.2",
+		"markdown-it": "^10.0.0",
 		"markdown-it-task-lists": "^2.1.1",
 		"prosemirror-collab": "^1.2.2",
 		"prosemirror-inputrules": "^1.1.2",
