@@ -38,7 +38,7 @@
 	"dependencies": {
 		"@nextcloud/vue": "^2.0.0",
 		"core-js": "^3.6.5",
-		"entities": "^2.0.0",
+		"entities": "^2.0.2",
 		"escape-html": "^1.0.3",
 		"highlight.js": "^9.18.0",
 		"markdown-it": "^10.0.0",
