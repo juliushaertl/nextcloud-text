@@ -8484,9 +8484,9 @@ prosemirror-view@1.14.7:
     prosemirror-state "^1.0.0"
     prosemirror-transform "^1.1.0"
 
-prosemirror-view@^1.0.0, prosemirror-view@^1.1.0, prosemirror-view@^1.13.3, prosemirror-view@^1.14.9:
-  version "1.14.9"
-  resolved "https://registry.yarnpkg.com/prosemirror-view/-/prosemirror-view-1.14.9.tgz#9efb96f362caaa0c25f0676f226202f48b500fb4"
+prosemirror-view@^1.0.0, prosemirror-view@^1.1.0, prosemirror-view@^1.13.3, prosemirror-view@^1.14.10:
+  version "1.14.10"
+  resolved "https://registry.yarnpkg.com/prosemirror-view/-/prosemirror-view-1.14.10.tgz#be36acaecd383985345bd9012bfe4c0b064a7a66"
   dependencies:
     prosemirror-model "^1.1.0"
     prosemirror-state "^1.0.0"
