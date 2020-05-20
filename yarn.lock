@@ -10072,9 +10072,9 @@ stylelint-scss@^3.17.2:
     postcss-selector-parser "^6.0.2"
     postcss-value-parser "^4.1.0"
 
-stylelint@^13.4.1:
-  version "13.4.1"
-  resolved "https://registry.yarnpkg.com/stylelint/-/stylelint-13.4.1.tgz#b347d27407d644492f8877657f6c0e7e823bd29f"
+stylelint@^13.5.0:
+  version "13.5.0"
+  resolved "https://registry.yarnpkg.com/stylelint/-/stylelint-13.5.0.tgz#9edbf90c8c02c47fd0c4818376e3799145f22cab"
   dependencies:
     "@stylelint/postcss-css-in-js" "^0.37.1"
     "@stylelint/postcss-markdown" "^0.36.1"
