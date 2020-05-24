@@ -21,22 +21,22 @@
   -->
 <template>
 	<div class="editor">
-		<MenuBar
+		<MenuBar v-if="isRichEditor"
 			ref="menubar"
 			:editor="editor"
-			:is-rich-editor="true"
+			:is-rich-editor="isRichEditor"
 			:is-public="false"
 			:autohide="false">
 			<slot />
 		</MenuBar>
-		<MenuBubble :editor="editor" />
+		<MenuBubble v-if="isRichEditor" :editor="editor" />
 		<EditorContent class="editor__content" :editor="editor" />
 	</div>
 </template>
 
 <script>
 import Vue from 'vue'
-import { createEditor, MarkdownEditor } from './../editor'
+import { createEditor, MarkdownEditor, serializePlainText } from './../editor'
 import { EditorContent, Editor as TiptapEditor } from 'tiptap'
 import { Placeholder } from 'tiptap-extensions'
 import MenuBar from './MenuBar'
@@ -79,18 +79,29 @@ export default {
 			editor: null,
 		}
 	},
+	computed: {
+		isRichEditor() {
+			return this.type !== EDITOR_TYPES.PLAIN
+		},
+	},
 	mounted() {
 		const props = {
 			editorClass: this.type === EDITOR_TYPES.MARKDOWN ? MarkdownEditor : TiptapEditor,
-			enableRichEditing: true,
+			enableRichEditing: this.type !== EDITOR_TYPES.PLAIN,
 			languages: undefined,
-			content: this.content,
+			content: this.type !== EDITOR_TYPES.PLAIN ? this.content : '<code><pre>' + this.content + '</pre></code>',
 			...this.editorProps,
 			onUpdate: (state) => {
-				if (this.type === EDITOR_TYPES.MARKDOWN) {
+				switch (this.type) {
+				case EDITOR_TYPES.MARKDOWN:
 					this.$emit('update', this.editor.getMarkdown())
-				} else {
+					break
+				case EDITOR_TYPES.RICH:
 					this.$emit('update', this.editor.getHTML())
+					break
+				case EDITOR_TYPES.PLAIN:
+					this.$emit('update', serializePlainText(this.editor))
+					break
 				}
 				this.editorProps.onUpdate && this.editorProps.onUpdate(state)
 			},
@@ -106,6 +117,11 @@ export default {
 	},
 	beforeDestroy() {
 		this.editor.destroy()
+	},
+	methods: {
+		setContent(content) {
+			this.editor.setContent(this.type !== EDITOR_TYPES.PLAIN ? this.content : '<code><pre>' + this.content + '</pre></code>',)
+		},
 	},
 }
 </script>
