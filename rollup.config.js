@@ -1,4 +1,4 @@
-import vue from 'rollup-plugin-vue' // Handle .vue SFC files
+import vue from 'rollup-plugin-vue'
 import babel from 'rollup-plugin-babel'
 import localResolve from 'rollup-plugin-node-resolve'
 import scss from 'rollup-plugin-scss'
@@ -40,8 +40,8 @@ export default {
 		eslint(),
 		scss(),
 		vue({
-			css: true, // Dynamically inject css as a <style> tag
-			compileTemplate: true, // Explicitly convert template to render function
+			css: true,
+			compileTemplate: true,
 			scss: {
 				indentedSyntax: true,
 			},
