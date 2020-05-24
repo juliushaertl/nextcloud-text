@@ -32,7 +32,6 @@ import {
 	CodeBlockHighlight,
 	HorizontalRule,
 	History,
-	Placeholder,
 } from 'tiptap-extensions'
 import { Strong, Italic, Strike } from './marks'
 import { PlainTextDocument, ListItem } from './nodes'
@@ -100,11 +99,6 @@ const createEditor = ({ editorClass, content, onInit, onUpdate, extensions, enab
 				openOnClick: true,
 			}),
 			// new Image(),
-			new Placeholder({
-				emptyNodeClass: 'is-empty',
-				emptyNodeText: 'Add notes, lists or links …',
-				showOnlyWhenEditable: true,
-			}),
 		]
 	} else {
 		richEditingExtensions = [
@@ -123,7 +117,8 @@ const createEditor = ({ editorClass, content, onInit, onUpdate, extensions, enab
 		extensions: [
 			...richEditingExtensions,
 			new History(),
-		].concat(extensions),
+			...extensions,
+		],
 		useBuiltInExtensions: enableRichEditing,
 	}
 	if (editorClass) {

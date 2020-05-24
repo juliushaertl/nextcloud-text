@@ -1,7 +1,7 @@
 <template>
 <div>
     <textarea v-model="text" @input="updateContent" />
-	<Editor :content="text" ref="editor" :editor-props="editorProps" @update="updateText">
+	<Editor :content="text" ref="editor" :editor-props="editorProps" placeholder="Add some awesome text 🚀" @update="updateText">
         <strong>Right menu bar slot</strong>
     </Editor>
 </div>

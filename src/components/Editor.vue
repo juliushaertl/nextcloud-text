@@ -38,6 +38,7 @@
 import Vue from 'vue'
 import { createEditor, MarkdownEditor } from './../editor'
 import { EditorContent, Editor as TiptapEditor } from 'tiptap'
+import { Placeholder } from 'tiptap-extensions'
 import MenuBar from './MenuBar'
 import MenuBubble from './MenuBubble'
 
@@ -58,7 +59,7 @@ export default {
 	props: {
 		editorProps: {
 			type: Object,
-			default: () => { return {} },
+			default: () => ({}),
 		},
 		type: {
 			type: String,
@@ -67,6 +68,10 @@ export default {
 		content: {
 			type: String,
 			default: '',
+		},
+		placeholder: {
+			type: String,
+			default: null,
 		},
 	},
 	data() {
@@ -89,6 +94,13 @@ export default {
 				}
 				this.editorProps.onUpdate && this.editorProps.onUpdate(state)
 			},
+			extensions: [
+				new Placeholder({
+					emptyNodeClass: 'is-empty',
+					emptyNodeText: this.placeholder,
+					showOnlyWhenEditable: true,
+				}),
+			],
 		}
 		this.editor = createEditor(props)
 	},
