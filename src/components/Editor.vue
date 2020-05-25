@@ -85,12 +85,13 @@ export default {
 		},
 	},
 	mounted() {
+		const passedProps = this.editorProps
 		const props = {
 			editorClass: this.type === EDITOR_TYPES.MARKDOWN ? MarkdownEditor : TiptapEditor,
 			enableRichEditing: this.type !== EDITOR_TYPES.PLAIN,
-			languages: undefined,
+			languages: this.editorProps.languages ? {...this.editorProps.languages} : undefined,
 			content: this.type !== EDITOR_TYPES.PLAIN ? this.content : '<code><pre>' + this.content + '</pre></code>',
-			...this.editorProps,
+			...this.passedProps,
 			onUpdate: (state) => {
 				switch (this.type) {
 				case EDITOR_TYPES.MARKDOWN:

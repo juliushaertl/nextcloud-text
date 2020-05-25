@@ -104,10 +104,16 @@ const createEditor = ({ editorClass, content, onInit, onUpdate, extensions, enab
 		richEditingExtensions = [
 			new PlainTextDocument(),
 			new Text(),
-			new CodeBlockHighlight({
-				...languages,
-			}),
 		]
+		console.log(languages)
+
+		if (languages) {
+			richEditingExtensions.push(new CodeBlockHighlight({
+				languages: languages,
+			}))
+		} else {
+			richEditingExtensions.push(new CodeBlockHighlight())
+		}
 	}
 	extensions = extensions || []
 	const params = {
