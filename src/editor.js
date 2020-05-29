@@ -44,12 +44,12 @@ export class MarkdownEditor extends TiptapEditor {
 	constructor(options) {
 		super({
 			...options,
-			content: markdownit.render(options.content),
+			content: markdownit.render(options.content)
 		})
 	}
 
 	setContent(content) {
-		const result = markdownit.render(content)
+		const result = markdownit.render(content.split('\\').join('\\\\'))
 		super.setContent(result)
 	}
 
@@ -163,6 +163,8 @@ const createMarkdownSerializer = (_nodes, _marks) => {
 			return this.serializer.serialize(content, { ...options, tightLists: true })
 				.split('\\[').join('[')
 				.split('\\]').join(']')
+				.split('\\\\').join('\\')
+				.split('\\\n').join('\n')
 		},
 	}
 }
