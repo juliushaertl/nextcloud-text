@@ -70,7 +70,7 @@
 		"@nextcloud/browserslist-config": "^1.0.0",
 		"@nextcloud/eslint-config": "^2.0.0",
 		"@nextcloud/eslint-plugin": "^1.4.0",
-		"@vue/babel-preset-app": "^4.4.4",
+		"@vue/babel-preset-app": "^4.4.5",
 		"@vue/test-utils": "^1.0.3",
 		"babel-core": "^7.0.0-bridge.0",
 		"babel-eslint": "^10.0.0",
