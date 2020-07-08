@@ -1127,9 +1127,9 @@
   dependencies:
     core-js "3.6.4"
 
-"@nextcloud/vue@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@nextcloud/vue/-/vue-2.1.0.tgz#bcb7f7dd08cca2f8743312eebc3f1acd7bd324b1"
+"@nextcloud/vue@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@nextcloud/vue/-/vue-2.2.1.tgz#532a666a355d1dc15faa553d031d120e210fe607"
   dependencies:
     "@nextcloud/auth" "^1.2.3"
     "@nextcloud/axios" "^1.3.2"
