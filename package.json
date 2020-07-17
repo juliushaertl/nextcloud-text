@@ -68,7 +68,7 @@
 		"@babel/plugin-transform-arrow-functions": "^7.10.1",
 		"@babel/preset-env": "^7.10.4",
 		"@nextcloud/browserslist-config": "^1.0.0",
-		"@nextcloud/eslint-config": "^2.0.0",
+		"@nextcloud/eslint-config": "^2.2.0",
 		"@nextcloud/eslint-plugin": "^1.4.0",
 		"@vue/babel-preset-app": "^4.4.6",
 		"@vue/test-utils": "^1.0.3",
