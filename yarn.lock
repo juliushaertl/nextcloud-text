@@ -9142,9 +9142,9 @@ rollup-plugin-alias@^2.2.0:
   dependencies:
     slash "^3.0.0"
 
-rollup-plugin-analyzer@^3.2.3:
-  version "3.2.3"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-analyzer/-/rollup-plugin-analyzer-3.2.3.tgz#c8199133625b5d43ce87eae7254dd5851e1cb32f"
+rollup-plugin-analyzer@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-analyzer/-/rollup-plugin-analyzer-3.3.0.tgz#52fb30465ae927d9c078b6ec90c578cfb9164fc2"
 
 rollup-plugin-babel@^4.3.2:
   version "4.4.0"
