@@ -8408,7 +8408,7 @@ prosemirror-state@1.3.3, prosemirror-state@^1.0.0, prosemirror-state@^1.2.2, pro
     prosemirror-model "^1.0.0"
     prosemirror-transform "^1.0.0"
 
-prosemirror-tables@1.0.0, prosemirror-tables@^1.0.0:
+prosemirror-tables@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/prosemirror-tables/-/prosemirror-tables-1.0.0.tgz#ec3d0b11e638c6a92dd14ae816d0a2efd1719b70"
   dependencies:
@@ -8418,7 +8418,7 @@ prosemirror-tables@1.0.0, prosemirror-tables@^1.0.0:
     prosemirror-transform "^1.2.1"
     prosemirror-view "^1.13.3"
 
-prosemirror-tables@^1.1.0:
+prosemirror-tables@^1.0.0, prosemirror-tables@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/prosemirror-tables/-/prosemirror-tables-1.1.0.tgz#e7fc65e57a44759b0b999d8c71294f79e5a4d54b"
   dependencies:
@@ -10321,9 +10321,9 @@ tiptap-extensions@^1.29.1:
     tiptap "^1.27.1"
     tiptap-commands "^1.13.1"
 
-tiptap-utils@^1.10.1, tiptap-utils@^1.9.0:
-  version "1.10.1"
-  resolved "https://registry.yarnpkg.com/tiptap-utils/-/tiptap-utils-1.10.1.tgz#bb958fda0a00928e610bee0e004809bdc8827ddd"
+tiptap-utils@^1.10.1, tiptap-utils@^1.10.3:
+  version "1.10.3"
+  resolved "https://registry.yarnpkg.com/tiptap-utils/-/tiptap-utils-1.10.3.tgz#3b902530452a3522d5c3f2f49833b13103f9703b"
   dependencies:
     prosemirror-model "^1.10.0"
     prosemirror-state "^1.3.3"
