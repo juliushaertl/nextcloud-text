@@ -109,7 +109,7 @@
 		"stylelint-scss": "^3.18.0",
 		"vue-jest": "^3.0.6",
 		"vue-template-compiler": "^2.6.11",
-		"vuepress": "^1.5.2"
+		"vuepress": "^1.5.3"
 	},
 	"jest": {
 		"moduleFileExtensions": [
