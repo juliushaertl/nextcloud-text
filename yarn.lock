@@ -8503,9 +8503,9 @@ prosemirror-transform@1.2.5:
   dependencies:
     prosemirror-model "^1.0.0"
 
-prosemirror-transform@^1.0.0, prosemirror-transform@^1.1.0, prosemirror-transform@^1.2.1, prosemirror-transform@^1.2.7:
-  version "1.2.7"
-  resolved "https://registry.yarnpkg.com/prosemirror-transform/-/prosemirror-transform-1.2.7.tgz#ba0e291a3cb43e6b633b779d93f53d01f5dad570"
+prosemirror-transform@^1.0.0, prosemirror-transform@^1.1.0, prosemirror-transform@^1.2.1, prosemirror-transform@^1.2.8:
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/prosemirror-transform/-/prosemirror-transform-1.2.8.tgz#4b86544fa43637fe381549fb7b019f4fb71fe65c"
   dependencies:
     prosemirror-model "^1.0.0"
 
