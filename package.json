@@ -36,7 +36,7 @@
 		"vue": "^2.6.11"
 	},
 	"dependencies": {
-		"@nextcloud/vue": "^2.3.0",
+		"@nextcloud/vue": "^2.6.1",
 		"core-js": "^3.6.5",
 		"entities": "^2.0.3",
 		"escape-html": "^1.0.3",
