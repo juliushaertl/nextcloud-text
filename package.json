@@ -52,7 +52,7 @@
 		"prosemirror-tables": "^1.0.0",
 		"prosemirror-transform": "^1.2.8",
 		"prosemirror-utils": "^0.9.6",
-		"prosemirror-view": "^1.15.6",
+		"prosemirror-view": "^1.16.0",
 		"tiptap": "^1.30.0",
 		"tiptap-commands": "^1.13.1",
 		"tiptap-extensions": "^1.29.1",
