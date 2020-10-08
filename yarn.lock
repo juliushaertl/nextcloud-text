@@ -1167,9 +1167,9 @@
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@nextcloud/eslint-config/-/eslint-config-2.2.0.tgz#d5377e4b72556d5b02673b5086c35cdfe2ce2864"
 
-"@nextcloud/eslint-plugin@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@nextcloud/eslint-plugin/-/eslint-plugin-1.4.0.tgz#43e4abc0dcbd47dbb4424b3c92fdf53be13b8181"
+"@nextcloud/eslint-plugin@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@nextcloud/eslint-plugin/-/eslint-plugin-1.5.0.tgz#ca315e67849ce920f2527cced9c276ab86d8be9f"
   dependencies:
     requireindex "^1.2.0"
 
