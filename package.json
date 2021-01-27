@@ -55,7 +55,7 @@
 		"prosemirror-view": "^1.16.0",
 		"tiptap": "^1.30.0",
 		"tiptap-commands": "^1.13.1",
-		"tiptap-extensions": "^1.29.1",
+		"tiptap-extensions": "^1.35.0",
 		"tiptap-utils": "^1.9.0",
 		"vue": "^2.6.11",
 		"vue-click-outside": "^1.1.0"
